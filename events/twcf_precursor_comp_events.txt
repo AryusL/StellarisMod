@@ -1,0 +1,13 @@
+namespace = twcf_precursor_comp
+
+country_event = {
+	id = twcf_precursor_comp.1
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		set_global_flag = pspmod_precursor_set_sless
+		set_global_flag = pspmod_precursor_set_coprean
+		set_global_flag = pspmod_precursor_set_astanine
+	}
+}

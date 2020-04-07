@@ -1,0 +1,5 @@
+on_press_begin = {
+	events = {
+		twcf_precursor_comp.1
+	}
+}
