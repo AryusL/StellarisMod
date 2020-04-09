@@ -1,15 +1,14 @@
 
-@distance = 50
-@base_moon_distance = 10
-@jumps = 3
+###############################################################################
+################## Real Space Star Systems ####################################
 
 ### Deneb System
 deneb_system = {
 	name = "NAME_Deneb"
-	class = "sc_a"
+	class = "sc_a_super"
 	asteroid_belt = {
 		type = rocky_asteroid_belt
-		radius = 90
+		radius = 105
 	}
 
 	init_effect = {
@@ -29,17 +28,19 @@ deneb_system = {
 	
 	planet = {
 		name = "NAME_Deneb"
-		class = "pc_a_star"
+		class = star
 		orbit_distance = 0
 		orbit_angle = 1
-		size = 40
+		size = 30
 		has_ring = no
 	}
+	
+	change_orbit = 75
 	
 	planet = {
 		name = "NAME_Inferno"
 		class = "pc_molten"
-		orbit_distance = 60
+		orbit_distance = 0
 		orbit_angle = 45
 		size = 10
 		has_ring = no
@@ -75,9 +76,9 @@ deneb_system = {
 	planet = {
 		name = "NAME_Olympus"
 		class = "pc_gas_giant"
-		orbit_distance = 30
+		orbit_distance = 40
 		orbit_angle = 200
-		size = 40
+		size = 50
 		has_ring = no
 		entity = "gas_giant_02_entity"
 		
@@ -106,7 +107,7 @@ deneb_system = {
 			}
 		
 			init_effect = {
-				generate_empire_home_planet = yes		
+				generate_empire_home_planet = yes			
 			}
 		}		
 	}
@@ -114,7 +115,7 @@ deneb_system = {
 	planet = {
 		name = "NAME_Marble"
 		class = "pc_barren_cold"
-		orbit_distance = 20
+		orbit_distance = 45
 		orbit_angle = 325
 		size = 10
 		has_ring = no
@@ -123,7 +124,7 @@ deneb_system = {
 	planet = {
 		name = "NAME_Hyperion"
 		class = "pc_gas_giant"
-		orbit_distance = 20
+		orbit_distance = 50
 		orbit_angle = 110
 		size = 30
 		has_ring = no
@@ -142,7 +143,7 @@ deneb_system = {
 	planet = {
 		name = "NAME_Tumbleweed"
 		class = "pc_barren"
-		orbit_distance = 20
+		orbit_distance = 60
 		orbit_angle = 35
 		size = 15
 		has_ring = no
@@ -151,7 +152,7 @@ deneb_system = {
 	planet = {
 		name = "NAME_Jackson's_Planet"
 		class = "pc_frozen"
-		orbit_distance = 20
+		orbit_distance = 75
 		orbit_angle = 150
 		size = 20
 		has_ring = no
@@ -172,10 +173,10 @@ deneb_system = {
 ### Deneb System - UNE start
 une_deneb_system = {
 	name = "NAME_Deneb"
-	class = "sc_a"
+	class = "sc_a_super"
 	asteroid_belt = {
 		type = rocky_asteroid_belt
-		radius = 90
+		radius = 105
 	}
 
 	init_effect = {
@@ -185,6 +186,7 @@ une_deneb_system = {
 				set_star_flag = empire_cluster
 			}
 		}
+		
 		generate_home_system_resources = yes
 	}
 	
@@ -210,17 +212,19 @@ une_deneb_system = {
 	
 	planet = {
 		name = "NAME_Deneb"
-		class = "pc_a_star"
+		class = star
 		orbit_distance = 0
 		orbit_angle = 1
-		size = 40
+		size = 30
 		has_ring = no
 	}
+	
+	change_orbit = 75
 	
 	planet = {
 		name = "NAME_Inferno"
 		class = "pc_molten"
-		orbit_distance = 60
+		orbit_distance = 0
 		orbit_angle = 45
 		size = 10
 		has_ring = no
@@ -256,9 +260,9 @@ une_deneb_system = {
 	planet = {
 		name = "NAME_Olympus"
 		class = "pc_gas_giant"
-		orbit_distance = 30
+		orbit_distance = 40
 		orbit_angle = 200
-		size = 40
+		size = 50
 		has_ring = no
 		entity = "gas_giant_02_entity"
 		
@@ -359,7 +363,7 @@ une_deneb_system = {
 	planet = {
 		name = "NAME_Marble"
 		class = "pc_barren_cold"
-		orbit_distance = 20
+		orbit_distance = 45
 		orbit_angle = 325
 		size = 10
 		has_ring = no
@@ -368,7 +372,7 @@ une_deneb_system = {
 	planet = {
 		name = "NAME_Hyperion"
 		class = "pc_gas_giant"
-		orbit_distance = 20
+		orbit_distance = 50
 		orbit_angle = 110
 		size = 30
 		has_ring = no
@@ -387,7 +391,7 @@ une_deneb_system = {
 	planet = {
 		name = "NAME_Tumbleweed"
 		class = "pc_barren"
-		orbit_distance = 20
+		orbit_distance = 60
 		orbit_angle = 35
 		size = 15
 		has_ring = no
@@ -396,12 +400,12 @@ une_deneb_system = {
 	planet = {
 		name = "NAME_Jackson's_Planet"
 		class = "pc_frozen"
-		orbit_distance = 20
+		orbit_distance = 75
 		orbit_angle = 150
 		size = 20
 		has_ring = no
 	}
-
+	
 	init_effect = {
 		create_starbase = {
 			size = starbase_starport
@@ -443,15 +447,14 @@ deneb_neighbor_t1 = {
 		class = star
 		orbit_distance = 0
 		orbit_angle = 1
-		size = { min = 20 max = 30 }
+		size = { min = @standard_min max = @standard_max }
 		has_ring = no
 	}
 	
-	change_orbit = 45
+	change_orbit = { min = 40 max = 60 }
 	
 	planet = {
-		count = { min = 0 max = 2 }
-		orbit_distance = 20
+		count = { min = 0 max = 1 }
 		change_orbit = @base_moon_distance
 		
 		moon = {
@@ -461,8 +464,39 @@ deneb_neighbor_t1 = {
 	}
 	
 	planet = {
-		count = { min = 2 max = 5 }
-		orbit_distance = 20
+		count = { min = 0 max = 1 }
+		orbit_distance = { min = 15 max = 20 }
+		change_orbit = @base_moon_distance
+		
+		moon = {
+			count = { min = 0 max = 1 }
+			orbit_distance = 5
+		}
+	}
+	
+	planet = {
+		count = 1
+		orbit_distance = { min = 20 max = 25 }
+	}
+	
+	planet = {
+		count = 1
+		orbit_distance = { min = 25 max = 30 }
+	}
+	
+	planet = {
+		count = { min = 0 max = 1 }
+		orbit_distance = { min = 30 max = 35 }
+	}
+	
+	planet = {
+		count = { min = 0 max = 1 }
+		orbit_distance = { min = 35 max = 40 }
+	}
+	
+	planet = {
+		count = { min = 0 max = 1 }
+		orbit_distance = { min = 40 max = 50 }
 	}
 	
 	neighbor_system = {
@@ -485,15 +519,26 @@ deneb_neighbor_t1_first_colony = {
 		class = star
 		orbit_distance = 0
 		orbit_angle = 1
-		size = { min = 20 max = 30 }
+		size = { min = @standard_min max = @standard_max }
 		has_ring = no
 	}
 	
-	change_orbit = 45
+	change_orbit = { min = 40 max = 60 }
 	
 	planet = {
-		count = { min = 0 max = 2 }
-		orbit_distance = 20
+		count = { min = 0 max = 1 }
+		
+		change_orbit = @base_moon_distance
+		
+		moon = {
+			count = { min = 0 max = 1 }
+			orbit_distance = 5
+		}
+	}
+	
+	planet = {
+		count = { min = 0 max = 1 }
+		orbit_distance = { min = 15 max = 20 }
 		
 		change_orbit = @base_moon_distance
 		
@@ -505,7 +550,7 @@ deneb_neighbor_t1_first_colony = {
 	
 	planet = {
 		count = 1
-		orbit_distance = 25
+		orbit_distance = { min = 20 max = 25 }
 		class = "pc_continental"
 		modifiers = none
 		anomaly = none
@@ -514,8 +559,56 @@ deneb_neighbor_t1_first_colony = {
 	}
 	
 	planet = {
-		count = { min = 2 max = 5 }
-		orbit_distance = 25
+		count = 1
+		orbit_distance = { min = 25 max = 30 }
+		
+		change_orbit = @base_moon_distance
+		
+		moon = {			
+			count = { min = 0 max = 1 }
+			orbit_distance = 5
+		}
+	}
+	
+	planet = {
+		count = 1
+		orbit_distance = { min = 30 max = 35 }
+		
+		change_orbit = @base_moon_distance
+		
+		moon = {			
+			count = { min = 0 max = 1 }
+			orbit_distance = 5
+		}
+	}
+	
+	planet = {
+		count = { min = 0 max = 1 }
+		orbit_distance = { min = 35 max = 40 }
+		
+		change_orbit = @base_moon_distance
+		
+		moon = {			
+			count = { min = 0 max = 1 }
+			orbit_distance = 5
+		}
+	}
+	
+	planet = {
+		count = { min = 0 max = 1 }
+		orbit_distance = { min = 40 max = 50 }
+		
+		change_orbit = @base_moon_distance
+		
+		moon = {			
+			count = { min = 0 max = 1 }
+			orbit_distance = 5
+		}
+	}
+	
+	planet = {
+		count = { min = 0 max = 1 }
+		orbit_distance = { min = 50 max = 60 }
 		
 		change_orbit = @base_moon_distance
 		
@@ -545,21 +638,26 @@ deneb_neighbor_t2_second_colony = {
 		class = star
 		orbit_distance = 0
 		orbit_angle = 1
-		size = { min = 20 max = 30 }
+		size = { min = @standard_min max = @standard_max }
 		has_ring = no
 	}
 	
-	change_orbit = 25
+	change_orbit = { min = 40 max = 60 }
 	
 	planet = {
-		count = 2
+		count = 1
 		orbit_angle = { min = 90 max = 270 }
-		orbit_distance = 20
 	}
 	
 	planet = {
 		count = 1
-		orbit_distance = 25
+		orbit_angle = { min = 90 max = 270 }
+		orbit_distance = { min = 15 max = 20 }
+	}
+	
+	planet = {
+		count = 1
+		orbit_distance = { min = 20 max = 25 }
 		class = "pc_continental"
 		modifiers = none
 		anomaly = none
@@ -577,9 +675,9 @@ deneb_neighbor_t2_second_colony = {
 	}
 	
 	planet = {
-		count = 2
+		count = 1
 		orbit_angle = { min = 90 max = 270 }
-		orbit_distance = 20
+		orbit_distance = { min = 25 max = 30 }
 		
 		change_orbit = @base_moon_distance
 		
@@ -592,11 +690,33 @@ deneb_neighbor_t2_second_colony = {
 	}
 	
 	planet = {
-		count = { min = 0 max = 2 }
+		count = 1
 		orbit_angle = { min = 90 max = 270 }
-		orbit_distance = 20
+		orbit_distance = { min = 30 max = 35 }
+		
+		change_orbit = @base_moon_distance
+		
+		moon = {
+			count = { min = 0 max = 1 }
+			class = random_non_colonizable
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 5
+		}
+	}
+	
+	planet = {
+		count = { min = 0 max = 1 }
+		orbit_angle = { min = 90 max = 270 }
+		orbit_distance = { min = 35 max = 40 }
+	}
+	
+	planet = {
+		count = { min = 0 max = 1 }
+		orbit_angle = { min = 90 max = 270 }
+		orbit_distance = { min = 40 max = 50 }
 	}
 }
+
 
 ### Vultaum Home System
 vultaumar_system = {
@@ -609,7 +729,7 @@ vultaumar_system = {
 		class = "pc_b_star"
 		orbit_distance = 0
 		orbit_angle = 1
-		size = 35
+		size = 30
 		has_ring = no
 	}
 	
@@ -660,7 +780,7 @@ vultaumar_system = {
 	planet = {
 		name = "NAME_Vultaumar_II"
 		class = "pc_toxic"
-		orbit_distance = 30
+		orbit_distance = 40
 		orbit_angle = 320
 		size = 30
 		has_ring = no
@@ -678,7 +798,7 @@ vultaumar_system = {
 	planet = {
 		name = "NAME_Vultaumar_III"
 		class = "pc_toxic"
-		orbit_distance = 20
+		orbit_distance = 50
 		orbit_angle = 210
 		size = 25
 		has_ring = yes
@@ -697,9 +817,9 @@ vultaumar_system = {
 	planet = {
 		name = "NAME_Vultaumar_IV"
 		class = "pc_gas_giant"
-		orbit_distance = 30
+		orbit_distance = 60
 		orbit_angle = 125
-		size = 40
+		size = 35
 		has_ring = no
 
 		init_effect = {
@@ -725,7 +845,7 @@ vultaumar_system = {
 	planet = {
 		name = "NAME_Vultaumar_V"
 		class = "pc_gas_giant"
-		orbit_distance = 45
+		orbit_distance = 75
 		orbit_angle = 185
 		size = 40
 		has_ring = yes
@@ -738,7 +858,7 @@ yuhtaan_system = {
 	class = "sc_m"
 	asteroid_belt = {
 		type = rocky_asteroid_belt
-		radius = 125
+		radius = 150
 	}
 	flags = { yuhtaan precursor_system }
 	
@@ -747,7 +867,7 @@ yuhtaan_system = {
 		class = "pc_m_star"
 		orbit_distance = 0
 		orbit_angle = 1
-		size = 25
+		size = 30
 		has_ring = no
 	}
 	
@@ -809,7 +929,7 @@ yuhtaan_system = {
 	planet = {
 		name = "NAME_Yuthaan_III"
 		class = "pc_barren_cold"
-		orbit_distance = 20
+		orbit_distance = 35
 		orbit_angle = 175
 		size = 15
 		has_ring = yes
@@ -817,7 +937,7 @@ yuhtaan_system = {
 	
 	planet = {
 		class = "pc_asteroid"
-		orbit_distance = 30
+		orbit_distance = 40
 		orbit_angle = -210
 		size = 5
 		has_ring = no
@@ -852,7 +972,7 @@ yuhtaan_system = {
 	planet = {
 		name = "NAME_Yuthaan_IV"
 		class = "pc_gas_giant"
-		orbit_distance = 40
+		orbit_distance = 50
 		orbit_angle = -160
 		size = 30
 		has_ring = no
@@ -887,7 +1007,7 @@ yuhtaan_system = {
 	planet = {
 		name = "NAME_Yuthaan_V"
 		class = "pc_gas_giant"
-		orbit_distance = 30
+		orbit_distance = 60
 		orbit_angle = -130
 		size = 30
 		has_ring = yes
@@ -1025,7 +1145,7 @@ fen_habbanis_system = {
 	planet = {
 		name = "NAME_Fen_Habbanis_IV"
 		class = "pc_toxic"
-		orbit_distance = 25
+		orbit_distance = 35
 		orbit_angle = 195
 		size = 20
 		has_ring = no
@@ -1034,7 +1154,7 @@ fen_habbanis_system = {
 	planet = {
 		name = "NAME_Fen_Habbanis_V"
 		class = "pc_barren"
-		orbit_distance = 20
+		orbit_distance = 40
 		orbit_angle = 290
 		size = 20
 		has_ring = no
@@ -1043,7 +1163,7 @@ fen_habbanis_system = {
 	planet = {
 		name = "NAME_Fen_Habbanis_VI"
 		class = "pc_gas_giant"
-		orbit_distance = 30
+		orbit_distance = 50
 		orbit_angle = -160
 		size = 35
 		has_ring = no
@@ -1054,7 +1174,7 @@ fen_habbanis_system = {
 				modifier = "first_league_energy"
 				days = -1
 			}
-
+			
 			set_deposit = d_energy_10
 		}
 	}	
@@ -1066,13 +1186,14 @@ irass_system = {
 	class = "sc_f"
 	asteroid_belt = {
 		type = rocky_asteroid_belt
-		radius = 125
+		radius = 145
 	}
 	flags = { irass precursor_system }
 	
 	planet = {
 		class = star
 		orbit_distance = 0
+		size = 29
 	}
 	
 	planet = {
@@ -1096,7 +1217,7 @@ irass_system = {
 	planet = {
 		name = "NAME_Irass_III"
 		class = "pc_toxic"
-		orbit_distance = 20
+		orbit_distance = 25
 		orbit_angle = 70
 		size = 20
 		has_ring = no
@@ -1115,7 +1236,7 @@ irass_system = {
 	planet = {
 		name = "NAME_Irass_IV"
 		class = "pc_barren"
-		orbit_distance = 20
+		orbit_distance = 30
 		orbit_angle = 275
 		size = 15
 		has_ring = no
@@ -1123,7 +1244,7 @@ irass_system = {
 	
 	planet = {
 		class = "pc_asteroid"
-		orbit_distance = 30
+		orbit_distance = 35
 		orbit_angle = -210
 		size = 5
 		has_ring = no
@@ -1140,7 +1261,7 @@ irass_system = {
 	planet = {
 		name = "NAME_Irass_V"
 		class = "pc_barren"
-		orbit_distance = 30
+		orbit_distance = 40
 		orbit_angle = 45
 		size = 20
 		has_ring = no
@@ -1181,7 +1302,7 @@ irass_system = {
 	planet = {
 		name = "NAME_Irass_VII"
 		class = "pc_gas_giant"
-		orbit_distance = 20
+		orbit_distance = 60
 		orbit_angle = 145
 		size = 20
 		has_ring = no
@@ -1208,7 +1329,7 @@ irass_system = {
 	planet = {
 		name = "NAME_Irass_VIII"
 		class = "pc_gas_giant"
-		orbit_distance = 20
+		orbit_distance = 70
 		orbit_angle = 145
 		size = 25
 		has_ring = no
@@ -1227,7 +1348,7 @@ irass_system = {
 	planet = {
 		name = "NAME_Irass_IX"
 		class = "pc_barren_cold"
-		orbit_distance = 20
+		orbit_distance = 80
 		orbit_angle = 45
 		size = 15
 		has_ring = no
@@ -1243,6 +1364,7 @@ cybrex_system = {
 	planet = {
 		class = star
 		orbit_distance = 0
+		size = 30
 
 		init_effect = {
 			create_ambient_object = {
@@ -1418,3 +1540,4 @@ cybrex_system = {
 		}
 	}
 }
+
