@@ -1718,26 +1718,6 @@ primitive_robot_system = {
 			set_planet_flag = primitive_robot_planet
 			add_modifier = { modifier = primitive_robots years = -1 }
 			prevent_anomaly = yes
-			create_species = {
-				name = "NAME_Primitive_Robot"
-				plural = "NAME_Primitive_Robots"
-				class = ROBOT
-				portrait = "default_robot"
-				namelist = "PRT1"
-				traits = {
-					trait = "trait_mechanical"
-				}
-				effect = {
-					set_species_flag = primitive_robots_flag
-					save_global_event_target_as = primitive_robot_species
-				}
-			}
-			while = {
-				count = 4
-				create_pop = {
-					species = event_target:primitive_robot_species
-				}
-			}
 			#clear_blockers = yes
 			add_deposit = d_city_ruins
 			add_deposit = d_city_ruins
@@ -5163,38 +5143,6 @@ star_crazy_fallback_system = {	# Fallback solution for Star Crazy Event (distar.
 			count = { min = 0 max = 1 }
 			orbit_angle = { min = 90 max = 270 }
 			orbit_distance = 5
-		}
-	}
-}
-
-gray_system = {
-	class = "sc_black_hole"
-	name = "Terminus Omega"
-	
-	usage = misc_system_init
-	usage_odds = 0
-
-	flags = { hostile_system }
-	
-	planet = {
-		count = 1
-		class = "pc_black_hole"
-		name = "Inhibitor"
-		orbit_distance = 0
-		orbit_angle = 1
-		size = { min = 30 max = 35 }
-		has_ring = no
-	}
-	
-	planet = {
-		class = pc_gray_goo
-		name = "The Final Experiment"
-		orbit_distance = 30
-		orbit_angle = { min = 90 max = 270 }
-		init_effect = {
-			add_anomaly = {
-				category = disco_gray_cat
-			}
 		}
 	}
 }
