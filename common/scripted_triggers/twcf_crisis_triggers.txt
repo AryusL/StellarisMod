@@ -1,14 +1,18 @@
 has_crisis = {
 	OR = {
+		has_global_flag = crisis_stage_1
 		has_global_flag = crisis_stage_1_swarm
 		has_global_flag = crisis_stage_1_ai
 		has_global_flag = crisis_stage_1_extradimensional
+		has_global_flag = crisis_stage_2
 		has_global_flag = crisis_stage_2_swarm
 		has_global_flag = crisis_stage_2_ai
 		has_global_flag = crisis_stage_2_extradimensional
+		has_global_flag = crisis_stage_3
 		has_global_flag = crisis_stage_3_swarm
 		has_global_flag = crisis_stage_3_ai
 		has_global_flag = crisis_stage_3_extradimensional
+		has_global_flag = crisis_stage_4
 		has_global_flag = crisis_stage_4_swarm
 		has_global_flag = crisis_stage_4_ai
 		has_global_flag = crisis_stage_4_extradimensional
@@ -17,6 +21,7 @@ has_crisis = {
 
 has_crisis_stage_1 ={
 	OR = {
+		has_global_flag = crisis_stage_1
 		has_global_flag = crisis_stage_1_swarm
 		has_global_flag = crisis_stage_1_ai
 		has_global_flag = crisis_stage_1_extradimensional
@@ -34,6 +39,7 @@ has_crisis_stage_1_extradimensional ={
 
 has_crisis_stage_2 ={
 	OR = {
+		has_global_flag = crisis_stage_2
 		has_global_flag = crisis_stage_2_swarm
 		has_global_flag = crisis_stage_2_ai
 		has_global_flag = crisis_stage_2_extradimensional
@@ -51,6 +57,7 @@ has_crisis_stage_2_extradimensional ={
 
 has_crisis_stage_3 ={
 	OR = {
+		has_global_flag = crisis_stage_3
 		has_global_flag = crisis_stage_3_swarm
 		has_global_flag = crisis_stage_3_ai
 		has_global_flag = crisis_stage_3_extradimensional
@@ -68,6 +75,7 @@ has_crisis_stage_3_extradimensional ={
 
 has_crisis_stage_4 ={
 	OR = {
+		has_global_flag = crisis_stage_4
 		has_global_flag = crisis_stage_4_swarm
 		has_global_flag = crisis_stage_4_ai
 		has_global_flag = crisis_stage_4_extradimensional

@@ -6,8 +6,9 @@ hauer_system_initializer = {
 	class = "sc_g"
 	
 	usage = misc_system_init 
-	usage_odds = 1
+	usage_odds = 2000000
 	max_instances = 1
+	spawn_chance = 100
 
 	###  1
 	planet = {
@@ -1152,6 +1153,9 @@ lost_colony_1 = {
 				name_list = root
 				type = default
 				origin = "origin_default"
+				government_restrictions = {
+					authority = { NOT = { value = auth_machine_intelligence value = auth_hive_mind } }
+				}
 				effect = {
 					save_event_target_as = lost_colony_parent
 					add_resource = {
@@ -1169,9 +1173,9 @@ lost_colony_1 = {
 			}
 			set_planet_size = 20
 			generate_start_deposits_and_blockers = yes
+			clear_blockers = yes
 			generate_start_buildings_and_districts = yes
 			generate_start_pops = yes
-			clear_blockers = yes
 			generate_lost_colony_parent_bonus = yes
 			event_target:lost_colony_parent = {
 				create_starting_leaders = yes
@@ -2259,7 +2263,7 @@ shattered_ring_start = {
 		type = rocky_asteroid_belt
 		radius = 100
 	}
-	flags = { empire_home_system }
+	flags = { empire_home_system ring_world_built }
 	usage = origin
 
 	init_effect = {
@@ -2309,7 +2313,7 @@ shattered_ring_start = {
 		deposit_blockers = none
 		modifiers = none
 		starting_planet = yes
-		flags = { ignore_startup_effect }
+		flags = { ignore_startup_effect megastructure }
 		init_effect = {
 			prevent_anomaly = yes
 		}
@@ -2433,12 +2437,13 @@ mega_shipyard_init_01 = {
 		base = 0
 		modifier = {
 			host_has_dlc = "Federations"
-			add = 100
+			add = 2000000
 		}
 	}
 
 	max_instances = 1
-	scaled_spawn_chance = 2
+	spawn_chance = 100
+	# scaled_spawn_chance = 2
 	
 	# Star
 	planet = {
@@ -2566,6 +2571,7 @@ mega_shipyard_init_01 = {
 						distance = 20
 						angle = 20
 					}
+					set_ambient_object_flag = mega_shipyard_ruined_debris
 				}
 			}
 		}
@@ -2586,7 +2592,7 @@ planet_with_too_many_moons_system = {
 		base = 0
 
 		modifier = { #spawns nearby the xenophobe FE
-			add = 150
+			add = 2000000
 			any_country = {
 				has_country_flag = fallen_empire_4
 			}
@@ -2599,7 +2605,8 @@ planet_with_too_many_moons_system = {
 	}
 
 	max_instances = 1
-	scaled_spawn_chance = 3
+	spawn_chance = 100
+	# scaled_spawn_chance = 3
 
 	flags = { planet_with_too_many_moons_system }
 
@@ -3000,7 +3007,7 @@ wenkwort_initializer = {
 	
 	usage = misc_system_init	#The game can pick this initialiser randomly for misc. purposes, i.e those which have not been initialised by empires or fallen empires
 	usage_odds = {
-		base = 1
+		base = 2000000
 		modifier = {
 			factor = 0
 			is_fe_cluster = yes #Clustered near a fallen empire
@@ -3011,6 +3018,7 @@ wenkwort_initializer = {
 		}
 	}
 	max_instances = 1
+	spawn_chance = 100
 	init_effect = { }
 
 	planet = {

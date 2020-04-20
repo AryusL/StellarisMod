@@ -1763,7 +1763,7 @@ hostile_init_07 = {
 	
 	usage = misc_system_init
 	usage_odds = {
-		base = 2000000
+		base = 15 #10
 		modifier = {
 			factor = 0
 			NOT = { is_in_cluster = resource_cluster_1 }
